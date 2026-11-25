@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Find public documents across the web using LangSearch.">
+  <title>Web Document Finder</title><link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header class="topbar"><div class="brand-mark">⌕</div><div><div class="brand">WEB DOCUMENT FINDER</div><div class="tagline">Discover public documents across the web</div></div><div class="provider"><span class="dot"></span> LangSearch connected</div></header>
+  <main class="wrap">
+    <section class="hero"><p class="eyebrow">SEARCH • DISCOVER • COLLECT</p><h1>Find the documents<br><span>you need.</span></h1><p class="intro">Search the web for PDFs, Word files, presentations, spreadsheets, images and archives. Open the original source or export your findings.</p></section>
+    <section class="panel search-panel">
+      <form id="searchForm">
+        <label for="query">What are you looking for?</label>
+        <div class="searchline"><input id="query" maxlength="300" placeholder="e.g. Ethiopian university computer science lecture notes" required><button id="searchBtn" type="submit">Search web <span>→</span></button></div>
+        <div class="filters">
+          <div class="filter-block"><label>Document types</label><div class="checks">
+            <label><input type="checkbox" name="type" value="pdf" checked> PDF</label><label><input type="checkbox" name="type" value="word" checked> Word</label><label><input type="checkbox" name="type" value="powerpoint" checked> PowerPoint</label><label><input type="checkbox" name="type" value="excel" checked> Excel / CSV</label><label><input type="checkbox" name="type" value="images"> Images</label><label><input type="checkbox" name="type" value="archives"> Archives</label>
+          </div></div>
+          <div class="filter-row"><div><label for="count">Results per search request</label><select id="count"><option value="10">10</option><option value="20">20</option><option value="30">30</option><option value="50" selected>50 (maximum)</option></select></div><div><label for="searchVariations">Related searches to run (uses API quota)</label><select id="searchVariations"><option value="1">1 search</option><option value="3">3 searches</option><option value="5">5 searches</option><option value="10" selected>10 searches (widest)</option></select></div><div><label for="crawlPages">Source pages to inspect</label><select id="crawlPages"><option value="0">Do not inspect pages</option><option value="50">50 pages</option><option value="100">100 pages</option><option value="250" selected>250 pages</option><option value="500">500 pages</option><option value="1000">1,000 pages (maximum)</option></select></div><div><label for="maxDocuments">Maximum document links</label><select id="maxDocuments"><option value="500">500</option><option value="1000">1,000</option><option value="2500">2,500</option><option value="5000" selected>5,000</option></select></div><div><label for="freshness">Date filter</label><select id="freshness"><option value="noLimit">Any time</option><option value="oneDay">Past 24 hours</option><option value="oneWeek">Past week</option><option value="oneMonth">Past month</option><option value="oneYear">Past year</option></select></div></div>
+          <div class="filter-row domain-row"><div><label for="includeDomains">Only these domains (optional)</label><input id="includeDomains" placeholder="example.edu, gov.et"></div><div><label for="excludeDomains">Exclude domains (optional)</label><input id="excludeDomains" placeholder="facebook.com, pinterest.com"></div></div>
+        </div>
+      </form>
+      <div id="status" class="status" aria-live="polite">Ready to search. Your API key stays on this server.</div>
+    </section>
+    <section id="resultsSection" class="results-section hidden">
+      <div class="results-head"><div><p class="eyebrow">YOUR SEARCH</p><h2 id="resultTitle">Results</h2></div><button id="exportBtn" class="secondary" disabled>↓ Export CSV</button></div>
+      <div id="stats" class="stats"></div>
+      <div class="tabs"><button class="tab active" data-tab="documents">Documents <span id="docCount">0</span></button><button class="tab" data-tab="sources">Source pages <span id="sourceCount">0</span></button></div>
+      <div id="documentsList" class="result-list"></div><div id="sourcesList" class="result-list hidden"></div>
+    </section>
+    <footer><span>Web Document Finder</span><span>Powered by LangSearch Web Search API</span></footer>
+  </main><script src="/app.js"></script>
+</body></html>
